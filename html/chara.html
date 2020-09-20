@@ -1,0 +1,98 @@
+<html>
+ <head>
+	<title>善太式TRPG Webルルブ</title>
+  <style>a {cursor:pointer;color:#c0e0e0;text-decoration:underline;} .down{position:fixed;bottom:0;right:0;} </style>
+ </head>
+<body bgcolor="#000000" text="#e0e0ff" link="#c0e0e0" vlink="#70b0b0" alink="#80c0f0">
+<script type="text/javascript" src="charaset.js"></script>
+
+<font size=2 color="#b0a0b0">魔法系＆大戦系</font><br>
+<font size=3 color="#a060a8" face="ＭＳ 明朝"><b>　善太式TRPG</b><br></font>
+<hr>
+<p align="center">
+<table border="1" align="left" width="350" bordercolor="#000000">
+  <th align="left" colspan=2 bgcolor="#604010">基礎ステータス
+<tr>
+  <th align="left">■CON<br>(3D6x5
+  <td align="left" width="70" id="con"><a onclick="writedice(1,6,3,5,1)">3D6 x 5</a>
+<tr>
+  <th align="left">■HLT<br>(3D6
+  <td align="left" width="70" id="hlt"><a onclick="writedice(1,6,3,1,2)">3D6</a>
+<tr>
+  <th align="left">■SPD<br>(2D6
+  <td align="left" width="70" id="spd"><a onclick="writedice(1,6,2,1,3)">2D6</a>
+<tr>
+  <th align="left">■PWR<br>(4D6
+  <td align="left" width="70" id="pwr"><a onclick="writedice(1,6,4,1,4)">4D6</a>
+<tr>
+  <th align="left">■MNT<br>(3D6
+  <td align="left" width="70" id="mnt"><a onclick="writedice(1,6,3,1,5)">3D6</a>
+<tr>
+  <th align="left">■MGP<br>(3D6
+  <td align="left" width="70" id="mgp"><a onclick="writedice(1,6,3,1,6)">3D6</a>
+<tr>
+  <th align="left">■MGS<br>(3D6x20
+  <td align="left" width="70" id="mgs"><a onclick="writedice(1,6,3,20,7)">3D6 x 20</a>
+<tr>
+  <th align="left">■SKL<br>(2D6x8+48
+  <td align="left" width="70" id="skl"><a onclick="writedice(1,6,2,8,8)">3D6 x 8 +48</a>
+<tr>
+  <th align="left">■INT<br>(3D6
+  <td align="left" width="70" id="int"><a onclick="writedice(1,6,3,1,9)">3D6</a>
+<tr>
+  <th align="left">■APP<br>(3D6
+  <td align="left" width="70" id="app"><a onclick="writedice(1,6,3,1,10)">3D6</a>
+<tr>
+  <th align="left" colspan=2 bgcolor="#1070b0">■職業
+<tr>
+  <td align="left" colspan=2><a onclick="writetext(1)" id="job">ここに職業を記入</a><br>
+</table>
+
+<table border="1" align="left" width="350" bordercolor="#000000">
+  <th align="left" colspan=2 bgcolor="#604010">基礎技能
+<tr>
+  <th align="left">■肉体技能<br>(PWRx4
+  <td align="left" width="70" id="bri">PWR x 4
+<tr>
+  <th align="left">■信用技能<br>(APPx5
+  <td align="left" width=70" id="brii">APP x 5
+<tr>
+  <th align="left">■思考技能<br>(INTx5
+  <td align="left" width="70" id="briii">INT x 5
+<tr>
+  <th align="left" colspan=2 bgcolor="#604010">通常技能  残努力値 : <font id="reskl">SKL</font>
+<tr>
+  <th align="left">■第一運動技能  <a onclick="writetext(2)" id="firstsportname">Any</a><br><a onclick="chnr(1,-10)"><<</a> <a onclick="chnr(1,-1)"><</a> - <a onclick="chnr(1,1)">></a> <a onclick="chnr(1,10)">>></a>
+  <td align="left" width="70" id="firstsport">25
+<tr>
+  <th align="left">■汎用運動技能<br><a onclick="chnr(2,-10)"><<</a> <a onclick="chnr(2,-1)"><</a> - <a onclick="chnr(2,1)">></a> <a onclick="chnr(2,10)">>></a>
+  <td align="left" width="70" id="othersports">5
+<tr>
+  <th align="left">■第一学術技能  <a onclick="writetext(3)" id="firstmajorname">Any</a><br><a onclick="chnr(3,-10)"><<</a> <a onclick="chnr(3,-1)"><</a> - <a onclick="chnr(3,1)">></a> <a onclick="chnr(3,10)">>></a>
+  <td align="left" width="70" id="firstmajor">20
+<tr>
+  <th align="left">■汎用学術技能<br><a onclick="chnr(4,-10)"><<</a> <a onclick="chnr(4,-1)"><</a> - <a onclick="chnr(4,1)">></a> <a onclick="chnr(4,10)">>></a>
+  <td align="left" width="70" id="othermajors">1
+<tr>
+  <th align="left">■第一道具技能  <a onclick="writetext(4)" id="firsttoolname">Any</a><br><a onclick="chnr(5,-10)"><<</a> <a onclick="chnr(5,-1)"><</a> - <a onclick="chnr(5,1)">></a> <a onclick="chnr(5,10)">>></a>
+  <td align="left" width="70" id="firsttool">15
+<tr>
+  <th align="left">■汎用道具技能<br><a onclick="chnr(6,-10)"><<</a> <a onclick="chnr(6,-1)"><</a> - <a onclick="chnr(6,1)">></a> <a onclick="chnr6,10)">>></a>
+  <td align="left" width="70" id="othertools">10
+<tr>
+  <th align="left">■説得<br><a onclick="chnr(7,-10)"><<</a> <a onclick="chnr(7,-1)"><</a> - <a onclick="chnr(7,1)">></a> <a onclick="chnr(7,10)">>></a>
+  <td align="left" width="70" id="persuade">10
+<tr>
+  <th align="left">■製作<br><a onclick="chnr(8,-10)"><<</a> <a onclick="chnr(8,-1)"><</a> - <a onclick="chnr(8,1)">></a> <a onclick="chnr(8,10)">>></a>
+  <td align="left" width="70" id="create">10
+<tr>
+  <th align="left">■操縦<br><a onclick="chnr(9,-10)"><<</a> <a onclick="chnr(9,-1)"><</a> - <a onclick="chnr(9,1)">></a> <a onclick="chnr(9,10)">>></a>
+  <td align="left" width="70" id="operation">10
+</table>
+</p>
+
+<font align="left"><br><br><br></font>
+<font size=2 class="down"><a href="top.html">トップページへ</a></font>
+
+</body>
+</html>
