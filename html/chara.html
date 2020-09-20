@@ -1,8 +1,8 @@
 <html>
  <head>
-	 <meta charset="ansi">
+        <meta charset="utf-8">
 	<title>善太式TRPG Webルルブ</title>
-  <style>a {cursor:pointer;color:#c0e0e0;text-decoration:underline;} .down{position:fixed;bottom:0;right:0;} </style>
+  <style>a {cursor:pointer;color:#c0e0e0;text-decoration:underline;} .down{position:fixed;bottom:0;right:0;} .under {clear:left;}</style>
  </head>
 <body bgcolor="#000000" text="#e0e0ff" link="#c0e0e0" vlink="#70b0b0" alink="#80c0f0">
 <script type="text/javascript" src="charaset.js"></script>
@@ -10,90 +10,154 @@
 <font size=2 color="#b0a0b0">魔法系＆大戦系</font><br>
 <font size=3 color="#a060a8" face="ＭＳ 明朝"><b>　善太式TRPG</b><br></font>
 <hr>
-<p align="center">
-<table border="1" align="left" width="350" bordercolor="#000000">
+<table border="1" align="left" width="350" bordercolor="#888888">
   <th align="left" colspan=2 bgcolor="#604010">基礎ステータス
 <tr>
   <th align="left">■CON<br>(3D6x5
-  <td align="left" width="70" id="con"><a onclick="writedice(1,6,3,5,1)">3D6 x 5</a>
+  <td align="left" width="100"><font id="recon"></font> / <font id="con"><a onclick="writedice(1,6,3,5,1)">3D6 x 5</a></font><br><a onclick="chst(1)">▼</a><a onclick="chst(1,1)">▲</a><a onclick="chst(1,0)">★</a>
 <tr>
-  <th align="left">■HLT<br>(3D6
-  <td align="left" width="70" id="hlt"><a onclick="writedice(1,6,3,1,2)">3D6</a>
+  <th align="left">■HLT  <br>(8D10x15<form name="form1"><textarea name="damage" value="" maxlength="3" rows="1" cols="3" placeholder="000"></textarea>  <a onclick="healthset()">■</a></form>
+  <td align="left" width="100"><font id="rehlt"></font> / <font id="hlt"><a onclick="writedice(1,10,8,15,2)">8D10 x 15</a></font><br><a onclick="chst(2)">▼</a><a onclick="chst(2,1)">▲</a><a onclick="chst(2,0)">★</a>
 <tr>
   <th align="left">■SPD<br>(2D6
-  <td align="left" width="70" id="spd"><a onclick="writedice(1,6,2,1,3)">2D6</a>
+  <td align="left" width="100" id="spd"><a onclick="writedice(1,6,2,1,3)">2D6</a>
 <tr>
   <th align="left">■PWR<br>(4D6
-  <td align="left" width="70" id="pwr"><a onclick="writedice(1,6,4,1,4)">4D6</a>
+  <td align="left" width="100" id="pwr"><a onclick="writedice(1,6,4,1,4)">4D6</a>
 <tr>
   <th align="left">■MNT<br>(3D6
-  <td align="left" width="70" id="mnt"><a onclick="writedice(1,6,3,1,5)">3D6</a>
+  <td align="left" width="100" id="mnt"><a onclick="writedice(1,6,3,1,5)">3D6</a>
 <tr>
   <th align="left">■MGP<br>(3D6
-  <td align="left" width="70" id="mgp"><a onclick="writedice(1,6,3,1,6)">3D6</a>
+  <td align="left" width="100"><font id="remgp"></font> / <font id="mgp"><a onclick="writedice(1,6,3,1,6)">3D6</a></font><br><a onclick="chst(6)">▼</a><a onclick="chst(6,1)">▲</a><a onclick="chst(6,0)">★</a>
 <tr>
   <th align="left">■MGS<br>(3D6x20
-  <td align="left" width="70" id="mgs"><a onclick="writedice(1,6,3,20,7)">3D6 x 20</a>
+  <td align="left" width="100" id="mgs"><a onclick="writedice(1,6,3,20,7)">3D6 x 20</a>
 <tr>
   <th align="left">■SKL<br>(2D6x8+48
-  <td align="left" width="70" id="skl"><a onclick="writedice(1,6,2,8,8)">3D6 x 8 +48</a>
+  <td align="left" width="100" id="skl"><a onclick="writedice(1,6,2,8,8)">3D6 x 8 +48</a>
 <tr>
   <th align="left">■INT<br>(3D6
-  <td align="left" width="70" id="int"><a onclick="writedice(1,6,3,1,9)">3D6</a>
+  <td align="left" width="100" id="int"><a onclick="writedice(1,6,3,1,9)">3D6</a>
 <tr>
   <th align="left">■APP<br>(3D6
-  <td align="left" width="70" id="app"><a onclick="writedice(1,6,3,1,10)">3D6</a>
+  <td align="left" width="100" id="app"><a onclick="writedice(1,6,3,1,10)">3D6</a>
 <tr>
   <th align="left" colspan=2 bgcolor="#1070b0">■職業
 <tr>
   <td align="left" colspan=2><a onclick="writetext(1)" id="job">ここに職業を記入</a><br>
 </table>
 
-<table border="1" align="left" width="350" bordercolor="#000000">
+<table border="1" align="left" width="350" bordercolor="#888888">
   <th align="left" colspan=2 bgcolor="#604010">基礎技能
 <tr>
   <th align="left">■肉体技能<br>(PWRx4
-  <td align="left" width="70" id="bri">PWR x 4
+  <td align="left" width="70"><font id="bri">PWR x 4</font><a onclick="skillroll(26)" id="x">■</a>
 <tr>
   <th align="left">■信用技能<br>(APPx5
-  <td align="left" width=70" id="brii">APP x 5
+  <td align="left" width=70"><font id="brii">APP x 5</font><a onclick="skillroll(27)" id="y">■</a>
 <tr>
   <th align="left">■思考技能<br>(INTx5
-  <td align="left" width="70" id="briii">INT x 5
+  <td align="left" width="70"><font id="briii">INT x 5</font><a onclick="skillroll(28)" id="z">■</a>
 <tr>
   <th align="left" colspan=2 bgcolor="#604010">通常技能  残努力値 : <font id="reskl">SKL</font>
 <tr>
   <th align="left">■第一運動技能  <a onclick="writetext(2)" id="firstsportname">Any</a><br><a onclick="chnr(1,-10)"><<</a> <a onclick="chnr(1,-1)"><</a> - <a onclick="chnr(1,1)">></a> <a onclick="chnr(1,10)">>></a>
-  <td align="left" width="70" id="firstsport">25
+  <td align="left" width="70"><font id="firstsport">25</font><a onclick="skillroll(1)" id="a">■</a>
 <tr>
   <th align="left">■汎用運動技能<br><a onclick="chnr(2,-10)"><<</a> <a onclick="chnr(2,-1)"><</a> - <a onclick="chnr(2,1)">></a> <a onclick="chnr(2,10)">>></a>
-  <td align="left" width="70" id="othersports">5
+  <td align="left" width="70"><font id="othersports">5</font><a onclick="skillroll(2)" id="b">■</a>
 <tr>
   <th align="left">■第一学術技能  <a onclick="writetext(3)" id="firstmajorname">Any</a><br><a onclick="chnr(3,-10)"><<</a> <a onclick="chnr(3,-1)"><</a> - <a onclick="chnr(3,1)">></a> <a onclick="chnr(3,10)">>></a>
-  <td align="left" width="70" id="firstmajor">20
+  <td align="left" width="70"><font id="firstmajor">20</font><a onclick="skillroll(3)" id="c">■</a>
 <tr>
-  <th align="left">■汎用学術技能<br><a onclick="chnr(4,-10)"><<</a> <a onclick="chnr(4,-1)"><</a> - <a onclick="chnr(4,1)">></a> <a onclick="chnr(4,10)">>></a>
-  <td align="left" width="70" id="othermajors">1
+  <th align="left">■用学術技能<br><a onclick="chnr(4,-10)"><<</a> <a onclick="chnr(4,-1)"><</a> - <a onclick="chnr(4,1)">></a> <a onclick="chnr(4,10)">>></a>
+  <td align="left" width="70"><font id="othermajors">1</font><a onclick="skillroll(4)" id="d">■</a>
 <tr>
   <th align="left">■第一道具技能  <a onclick="writetext(4)" id="firsttoolname">Any</a><br><a onclick="chnr(5,-10)"><<</a> <a onclick="chnr(5,-1)"><</a> - <a onclick="chnr(5,1)">></a> <a onclick="chnr(5,10)">>></a>
-  <td align="left" width="70" id="firsttool">15
+  <td align="left" width="70"><font id="firsttool">15</font><a onclick="skillroll(5)" id="e">■</a>
 <tr>
-  <th align="left">■汎用道具技能<br><a onclick="chnr(6,-10)"><<</a> <a onclick="chnr(6,-1)"><</a> - <a onclick="chnr(6,1)">></a> <a onclick="chnr6,10)">>></a>
-  <td align="left" width="70" id="othertools">10
+  <th align="left">■汎用道具技能<br><a onclick="chnr(6,-10)"><<</a> <a onclick="chnr(6,-1)"><</a> - <a onclick="chnr(6,1)">></a> <a onclick="chnr(6,10)">>></a>
+  <td align="left" width="70"><font id="othertools">10</font><a onclick="skillroll(6)" id="f">■</a>
 <tr>
   <th align="left">■説得<br><a onclick="chnr(7,-10)"><<</a> <a onclick="chnr(7,-1)"><</a> - <a onclick="chnr(7,1)">></a> <a onclick="chnr(7,10)">>></a>
-  <td align="left" width="70" id="persuade">10
+  <td align="left" width="70"><font id="persuade">10</font><a onclick="skillroll(7)" id="g">■</a>
 <tr>
   <th align="left">■製作<br><a onclick="chnr(8,-10)"><<</a> <a onclick="chnr(8,-1)"><</a> - <a onclick="chnr(8,1)">></a> <a onclick="chnr(8,10)">>></a>
-  <td align="left" width="70" id="create">10
+  <td align="left" width="70"><font id="create">10</font><a onclick="skillroll(8)" id="h">■</a>
 <tr>
   <th align="left">■操縦<br><a onclick="chnr(9,-10)"><<</a> <a onclick="chnr(9,-1)"><</a> - <a onclick="chnr(9,1)">></a> <a onclick="chnr(9,10)">>></a>
-  <td align="left" width="70" id="operation">10
+  <td align="left" width="70"><font id="operation">10</font><a onclick="skillroll(9)" id="i">■</a>
 </table>
-</p>
 
-<font align="left"><br><br><br></font>
-<font size=2 class="down"><a href="top.html">トップページへ</a></font>
+<hr class="under">
+
+<table border="1" align="left" width="350" bordercolor="#888888">
+  <th align="left" colspan=2 bgcolor="#604010">魔術技能<br>ダメージ(4D3+MNT) : <a onclick="damage()" id="damage">4D3+MNT</a><br>   残努力値(上) : <font id="rereskl">SKP</font> 残魔法才(下) : <font id="remgs">MGS</font>
+<tr>
+  <th align="left">■火魔属性I (火を操る<br>   対 氷<br><a onclick="chnr(10,-10)"><<</a> <a onclick="chnr(10,-1)"><</a> - <a onclick="chnr(10,1)">></a> <a onclick="chnr(10,10)">>></a><br>
+<a onclick="chmr(10,-10)"><<</a> <a onclick="chmr(10,-1)"><</a> - <a onclick="chmr(10,1)">></a> <a onclick="chmr(10,10)">>></a>
+  <td align="left" width="70"><font id="heat">5</font><a onclick="skillroll(10)" id="j">■</a>
+<tr>
+  <th align="left">■氷魔属性I (氷を操る<br>   対 火<br><a onclick="chnr(11,-10)"><<</a> <a onclick="chnr(11,-1)"><</a> - <a onclick="chnr(11,1)">></a> <a onclick="chnr(11,10)">>></a><br>
+<a onclick="chmr(11,-10)"><<</a> <a onclick="chmr(11,-1)"><</a> - <a onclick="chmr(11,1)">></a> <a onclick="chmr(11,10)">>></a>
+  <td align="left" width="70"><font id="chill">5</font><a onclick="skillroll(11)" id="k">■</a>
+<tr>
+  <th align="left">■光魔属性I (光を出す,影を作る<br>   対 流<br><a onclick="chnr(12,-10)"><<</a> <a onclick="chnr(12,-1)"><</a> - <a onclick="chnr(12,1)">></a> <a onclick="chnr(12,10)">>></a><br>
+<a onclick="chmr(12,-10)"><<</a> <a onclick="chmr(12,-1)"><</a> - <a onclick="chmr(12,1)">></a> <a onclick="chmr(12,10)">>></a>
+  <td align="left" width="70"><font id="optict">5</font><a onclick="skillroll(12)" id="l">■</a>
+<tr>
+  <th align="left">■流魔属性I (自然の流れに沿う<br>   対 光<br><a onclick="chnr(13,-10)"><<</a> <a onclick="chnr(13,-1)"><</a> - <a onclick="chnr(13,1)">></a> <a onclick="chnr(13,10)">>></a><br>
+<a onclick="chmr(13,-10)"><<</a> <a onclick="chmr(13,-1)"><</a> - <a onclick="chmr(13,1)">></a> <a onclick="chmr(13,10)">>></a>
+  <td align="left" width="70"><font id="nature">5</font><a onclick="skillroll(13)" id="m">■</a>
+<tr>
+  <th align="left">■無魔属性I (実体のある魔力<br>   対 崇<br><a onclick="chnr(14,-10)"><<</a> <a onclick="chnr(14,-1)"><</a> - <a onclick="chnr(14,1)">></a> <a onclick="chnr(14,10)">>></a><br>
+<a onclick="chmr(14,-10)"><<</a> <a onclick="chmr(14,-1)"><</a> - <a onclick="chmr(14,1)">></a> <a onclick="chmr(14,10)">>></a>
+  <td align="left" width="70"><font id="plain">5</font><a onclick="skillroll(14)" id="n">■</a>
+<tr>
+  <th align="left">■霊魔属性I (思念の表層に触れる<br>   対 霊<br><a onclick="chnr(15,-10)"><<</a> <a onclick="chnr(15,-1)"><</a> - <a onclick="chnr(15,1)">></a> <a onclick="chnr(15,10)">>></a><br>
+<a onclick="chmr(15,-10)"><<</a> <a onclick="chmr(15,-1)"><</a> - <a onclick="chmr(15,1)">></a> <a onclick="chmr(15,10)">>></a>
+  <td align="left" width="70"><font id="spirit">5</font><a onclick="skillroll(15)" id="o">■</a>
+<tr>
+  <th align="left">■崇魔属性I (怨念,執着を操る<br>   対 無<br><a onclick="chnr(17,-10)"><<</a> <a onclick="chnr(17,-1)"><</a> - <a onclick="chnr(17,1)">></a> <a onclick="chnr(17,10)">>></a><br>
+<a onclick="chmr(17,-10)"><<</a> <a onclick="chmr(17,-1)"><</a> - <a onclick="chmr(17,1)">></a> <a onclick="chmr(17,10)">>></a>
+  <td align="left" width="70"><font id="curse">5</font><a onclick="skillroll(17)" id="p">■</a>
+</table>
+
+
+<table border="1" align="left" width="350" bordercolor="#888888">
+  <th align="left" colspan=2 bgcolor="#604010">魔術技能X<br>ダメージ(8D10+MNT*4) : <a onclick="damagex()" id="damagex">8D10+MNT*4</a><br>   残努力値(上) : <font id="rerereskl">SKP</font> 残魔法才(下) : <font id="reremgs">MGS</font>
+<tr>
+  <th align="left">■火魔属性X (熱を操る<br>   対 氷<br><a onclick="chnr(18,-10,3)"><<</a> <a onclick="chnr(18,-1,3)"><</a> 3 <a onclick="chnr(18,1,3)">></a> <a onclick="chnr(18,10,3)">>></a><br>
+<a onclick="chmr(18,-10,3)"><<</a> <a onclick="chmr(18,-1,3)"><</a> 3 <a onclick="chmr(18,1,3)">></a> <a onclick="chmr(18,10,3)">>></a>
+  <td align="left" width="70"><font id="heatx">1</font><a onclick="skillroll(18)" id="q">■</a>
+<tr>
+  <th align="left">■氷魔属性X (冷気を操る<br>   対 火<br><a onclick="chnr(19,-10,3)"><<</a> <a onclick="chnr(19,-1,3)"><</a> 3 <a onclick="chnr(19,1,3)">></a> <a onclick="chnr(19,10,3)">>></a><br>
+<a onclick="chmr(19,-10,3)"><<</a> <a onclick="chmr(19,-1,3)"><</a> 3 <a onclick="chmr(19,1,3)">></a> <a onclick="chmr(19,10,3)">>></a>
+  <td align="left" width="70"><font id="chillx">1</font><a onclick="skillroll(19)" id="r">■</a>
+<tr>
+  <th align="left">■光魔属性X (光,電磁波を操る<br>   対 流<br><a onclick="chnr(20,-10,3)"><<</a> <a onclick="chnr(20,-1,3)"><</a> 3 <a onclick="chnr(20,1,3)">></a> <a onclick="chnr(20,10,3)">>></a><br>
+<a onclick="chmr(20,-10,3)"><<</a> <a onclick="chmr(20,-1,3)"><</a> 3 <a onclick="chmr(20,1,3)">></a> <a onclick="chmr(20,10,3)">>></a>
+  <td align="left" width="70"><font id="optictx">1</font><a onclick="skillroll(20)" id="s">■</a>
+<tr>
+  <th align="left">■流魔属性X (自然の流れを操る<br>   対 光<br><a onclick="chnr(21,-10,3)"><<</a> <a onclick="chnr(21,-1,3)"><</a> 3 <a onclick="chnr(21,1,3)">></a> <a onclick="chnr(21,10,3)">>></a><br>
+<a onclick="chmr(21,-10,3)"><<</a> <a onclick="chmr(21,-1,3)"><</a> 3 <a onclick="chmr(21,1,3)">></a> <a onclick="chmr(21,10,3)">>></a>
+  <td align="left" width="70"><font id="naturex">1</font><a onclick="skillroll(21)" id="t">■</a>
+<tr>
+  <th align="left">■無魔属性X (魔力の物質化<br>   対 崇<br><a onclick="chnr(22,-10,3)"><<</a> <a onclick="chnr(22,-1,3)"><</a> 3 <a onclick="chnr(22,1,3)">></a> <a onclick="chnr(22,10,3)">>></a><br>
+<a onclick="chmr(22,-10,3)"><<</a> <a onclick="chmr(22,-1,3)"><</a> 3 <a onclick="chmr(22,1,3)">></a> <a onclick="chmr(22,10,3)">>></a>
+  <td align="left" width="70"><font id="plainx">1</font><a onclick="skillroll(22)" id="u">■</a>
+<tr>
+  <th align="left">■霊魔属性X (霊魂を操る<br>   対 霊<br><a onclick="chnr(23,-10,3)"><<</a> <a onclick="chnr(23,-1,3)"><</a> 3 <a onclick="chnr(23,1,3)">></a> <a onclick="chnr(23,10,3)">>></a><br>
+<a onclick="chmr(23,-10,3)"><<</a> <a onclick="chmr(23,-1,3)"><</a> 3 <a onclick="chmr(23,1,3)">></a> <a onclick="chmr(23,10,3)">>></a>
+  <td align="left" width="70"><font id="spiritx">1</font><a onclick="skillroll(23)" id="v">■</a>
+<tr>
+  <th align="left">■崇魔属性X (思念を操る<br>   対 無<br><a onclick="chnr(24,-10,3)"><<</a> <a onclick="chnr(24,-1,3)"><</a> 3 <a onclick="chnr(24,1,3)">></a> <a onclick="chnr(24,10,3)">>></a><br>
+<a onclick="chmr(24,-10,3)"><<</a> <a onclick="chmr(24,-1,3)"><</a> 3 <a onclick="chmr(24,1,3)">></a> <a onclick="chmr(24,10,3)">>></a>
+  <td align="left" width="70"><font id="cursex">1</font><a onclick="skillroll(24)" id="w">■</a>
+</table>
+
+<font size=2 class="down"><a onclick="Setted=1">これで完成</a>  <a href="top.html">トップページへ</a></font>
 
 </body>
 </html>
